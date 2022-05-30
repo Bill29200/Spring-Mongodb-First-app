@@ -1,8 +1,11 @@
 package com.example.springMongodbCRUD.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,5 +25,10 @@ public class EmployeeController {
 		//EmployeeService.saveOrUpdate(emp);
 		return new ResponseEntity<Employee>(employeeService.saveOrUpdate(emp), HttpStatus.ACCEPTED);
 		
+	}
+	//..............................................
+	@GetMapping 
+	public ResponseEntity<List<Employee>> findAll(){
+		return new ResponseEntity<List<Employee>>(employeeService.findAll(), HttpStatus.ACCEPTED);
 	}
 }
