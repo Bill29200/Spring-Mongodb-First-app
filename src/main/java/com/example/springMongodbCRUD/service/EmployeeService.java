@@ -24,5 +24,8 @@ public class EmployeeService {
 		return employeeRepository.findAll();
 	}
 	//...........................
+	public void delete(Employee emp) {
+		employeeRepository.delete(emp);
+	}
 
 }
